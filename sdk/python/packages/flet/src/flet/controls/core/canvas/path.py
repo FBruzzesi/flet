@@ -31,7 +31,7 @@ class Path(Shape):
     The list of path elements.
     """
 
-    paint: Paint = field(default_factory=lambda: Paint())
+    paint: Paint = field(default_factory=Paint)
     """
     A style to draw a path with.
     """

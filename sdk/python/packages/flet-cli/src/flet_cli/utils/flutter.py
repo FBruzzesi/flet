@@ -62,5 +62,5 @@ def install_flutter(version, log, progress: Optional[Progress] = None):
 if __name__ == "__main__":
     flutter_version = "3.24.3"
     console = Console()
-    install_dir = install_flutter(flutter_version, lambda m: console.log(m))
+    install_dir = install_flutter(flutter_version, console.log)
     print(f"Flutter is ready at: {install_dir}")

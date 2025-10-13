@@ -31,7 +31,7 @@ class FormFieldControl(LayoutControl):
     Text size in virtual pixels.
     """
 
-    text_style: TextStyle = field(default_factory=lambda: TextStyle())
+    text_style: TextStyle = field(default_factory=TextStyle)
     """
     The [`TextStyle`][flet.] to use for the
     text being edited.

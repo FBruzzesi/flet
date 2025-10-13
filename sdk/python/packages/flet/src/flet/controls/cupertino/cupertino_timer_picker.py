@@ -27,7 +27,7 @@ class CupertinoTimerPicker(LayoutControl):
     duration is bound between `0` and `23` hours `59` minutes `59` seconds.
     """
 
-    value: DurationValue = field(default_factory=lambda: Duration())
+    value: DurationValue = field(default_factory=Duration)
     """
     The initial duration of the countdown timer.
 

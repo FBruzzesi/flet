@@ -59,7 +59,7 @@ class AnimationCurve(Enum):
 
 @dataclass
 class Animation:
-    duration: DurationValue = field(default_factory=lambda: Duration())
+    duration: DurationValue = field(default_factory=Duration)
     """
     The duration of the animation.
     """

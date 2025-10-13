@@ -36,7 +36,7 @@ class CupertinoDatePicker(LayoutControl):
     An iOS-styled date picker.
     """
 
-    value: DateTimeValue = field(default_factory=lambda: datetime.now())
+    value: DateTimeValue = field(default_factory=datetime.now)
     """
     The initial date and/or time of the picker.
 

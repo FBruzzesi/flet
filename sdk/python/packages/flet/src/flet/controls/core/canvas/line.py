@@ -38,7 +38,7 @@ class Line(Shape):
     The y-axis coordinate of the line's end point.
     """
 
-    paint: Paint = field(default_factory=lambda: Paint())
+    paint: Paint = field(default_factory=Paint)
     """
     A style to draw a line with.
     """

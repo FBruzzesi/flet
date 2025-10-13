@@ -16,7 +16,7 @@ class Fill(Shape):
     consider [`Color`][(p).color.] shape instead.
     """
 
-    paint: Paint = field(default_factory=lambda: Paint())
+    paint: Paint = field(default_factory=Paint)
     """
     A style to fill the canvas with.
     """

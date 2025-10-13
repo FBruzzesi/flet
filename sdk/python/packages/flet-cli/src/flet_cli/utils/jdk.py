@@ -130,5 +130,5 @@ def install_jdk(log, progress: Optional[Progress] = None):
 # Example usage
 if __name__ == "__main__":
     console = Console()
-    jdk_path = install_jdk(lambda m: console.log(m))
+    jdk_path = install_jdk(console.log)
     print(f"JDK path: {jdk_path}")

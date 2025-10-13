@@ -128,7 +128,7 @@ class UnderlineTabIndicator:
     The color and weight of the horizontal line drawn below the selected tab.
     """
 
-    insets: PaddingValue = field(default_factory=lambda: Padding.zero())
+    insets: PaddingValue = field(default_factory=Padding.zero)
     """
     Locates the selected tab's underline relative to the tab's boundary.
 

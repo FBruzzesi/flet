@@ -42,7 +42,7 @@ class Rect(Shape):
     The border radius of this rectangle.
     """
 
-    paint: Paint = field(default_factory=lambda: Paint())
+    paint: Paint = field(default_factory=Paint)
     """
     A style to draw this rectangle with.
     """

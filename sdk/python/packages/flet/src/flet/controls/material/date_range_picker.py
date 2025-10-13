@@ -74,7 +74,7 @@ class DateRangePicker(DialogControl):
     The latest allowable date on the date range. Defaults to `January 1, 2050`.
     """
 
-    current_date: DateTimeValue = field(default_factory=lambda: datetime.now())
+    current_date: DateTimeValue = field(default_factory=datetime.now)
     """
     The date representing today. It will be highlighted in the day grid.
     """

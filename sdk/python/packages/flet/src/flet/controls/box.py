@@ -114,7 +114,7 @@ class BoxShadow:
     Color used to draw the shadow.
     """
 
-    offset: OffsetValue = field(default_factory=lambda: Offset())
+    offset: OffsetValue = field(default_factory=Offset)
     """
     The displacement of the shadow from the casting
     element. Positive x/y offsets will shift the shadow to the right and down, while

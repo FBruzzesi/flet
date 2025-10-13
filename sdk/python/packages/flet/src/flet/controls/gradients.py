@@ -98,12 +98,12 @@ class LinearGradient(Gradient):
     More information on [here](https://api.flutter.dev/flutter/painting/LinearGradient-class.html).
     """
 
-    begin: Alignment = field(default_factory=lambda: Alignment.center_left())
+    begin: Alignment = field(default_factory=Alignment.center_left)
     """
     The offset at which stop `0.0` of the gradient is placed.
     """
 
-    end: Alignment = field(default_factory=lambda: Alignment.center_right())
+    end: Alignment = field(default_factory=Alignment.center_right)
     """
     The offset at which stop `1.0` of the gradient is placed.
     """

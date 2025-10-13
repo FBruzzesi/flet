@@ -96,6 +96,20 @@ class PageResizeEvent(Event["BasePage"]):
     """
 
 
+@control("Overlay")
+class Overlay(BaseControl):
+    controls: list[BaseControl] = field(default_factory=list)
+
+    def init(self):
+        super().init()
+        self._internals["host_positioned"] = True
+
+
+@control("Dialogs")
+class Dialogs(BaseControl):
+    controls: list[DialogControl] = field(default_factory=list)
+
+
 @control("BasePage", isolated=True, kw_only=True)
 class BasePage(AdaptiveControl):
     """
@@ -227,8 +241,8 @@ class BasePage(AdaptiveControl):
             [`Page.window`][flet.Page.window] instead.
     """
 
-    _overlay: "Overlay" = field(default_factory=lambda: Overlay())
-    _dialogs: "Dialogs" = field(default_factory=lambda: Dialogs())
+    _overlay: Overlay = field(default_factory=Overlay)
+    _dialogs: Dialogs = field(default_factory=Dialogs)
 
     def __default_view(self) -> View:
         assert len(self.views) > 0, "views list is empty."
@@ -561,16 +575,3 @@ class BasePage(AdaptiveControl):
     def __contains__(self, item: Control) -> bool:
         return item in self.controls
 
-
-@control("Overlay")
-class Overlay(BaseControl):
-    controls: list[BaseControl] = field(default_factory=list)
-
-    def init(self):
-        super().init()
-        self._internals["host_positioned"] = True
-
-
-@control("Dialogs")
-class Dialogs(BaseControl):
-    controls: list[DialogControl] = field(default_factory=list)

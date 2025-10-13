@@ -55,7 +55,7 @@ class Points(Shape):
     Defines how a list of points is interpreted when drawing a set of points.
     """
 
-    paint: Paint = field(default_factory=lambda: Paint())
+    paint: Paint = field(default_factory=Paint)
     """
     A style to draw points with.
     """

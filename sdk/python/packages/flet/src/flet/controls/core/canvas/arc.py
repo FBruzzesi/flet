@@ -60,7 +60,7 @@ class Arc(Shape):
     circle sector. If not closed (`False`), this arc forms a circle segment.
     """
 
-    paint: Paint = field(default_factory=lambda: Paint())
+    paint: Paint = field(default_factory=Paint)
     """
     A style to draw an arc with.
     """

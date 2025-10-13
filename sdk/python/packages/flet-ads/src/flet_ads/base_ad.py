@@ -19,7 +19,7 @@ class BaseAd(ft.Control):
     Ad unit ID for this ad.
     """
 
-    request: AdRequest = field(default_factory=lambda: AdRequest())
+    request: AdRequest = field(default_factory=AdRequest)
     """
     Targeting information used to fetch an Ad.
     """

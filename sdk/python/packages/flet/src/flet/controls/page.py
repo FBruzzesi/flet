@@ -192,7 +192,7 @@ class Page(BasePage):
     """
 
     browser_context_menu: BrowserContextMenu = field(
-        default_factory=lambda: BrowserContextMenu(), metadata={"skip": True}
+        default_factory=BrowserContextMenu, metadata={"skip": True}
     )
     """
     Used to enable or disable the context menu that appears when the user
@@ -203,34 +203,34 @@ class Page(BasePage):
     """
 
     shared_preferences: SharedPreferences = field(
-        default_factory=lambda: SharedPreferences(), metadata={"skip": True}
+        default_factory=SharedPreferences, metadata={"skip": True}
     )
     """
     Provides a persistent key-value storage for simple data types.
     """
 
     clipboard: Clipboard = field(
-        default_factory=lambda: Clipboard(), metadata={"skip": True}
+        default_factory=Clipboard, metadata={"skip": True}
     )
     """
     Provides access to the system clipboard.
     """
 
     storage_paths: StoragePaths = field(
-        default_factory=lambda: StoragePaths(), metadata={"skip": True}
+        default_factory=StoragePaths, metadata={"skip": True}
     )
     """
     Provides the information about common storage paths.
     """
 
     url_launcher: UrlLauncher = field(
-        default_factory=lambda: UrlLauncher(), metadata={"skip": True}
+        default_factory=UrlLauncher, metadata={"skip": True}
     )
     """
     Provides methods for launching URLs.
     """
 
-    window: Window = field(default_factory=lambda: Window())
+    window: Window = field(default_factory=Window)
     """
     Provides properties/methods/events to monitor and control the
     app's native OS window.
@@ -423,7 +423,7 @@ class Page(BasePage):
     TBD
     """
     _services: list[Service] = field(default_factory=list)
-    _user_services: ServiceRegistry = field(default_factory=lambda: ServiceRegistry())
+    _user_services: ServiceRegistry = field(default_factory=ServiceRegistry)
 
     def __post_init__(
         self,

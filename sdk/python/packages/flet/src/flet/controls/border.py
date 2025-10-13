@@ -171,22 +171,22 @@ class Border:
         ```
     """
 
-    top: BorderSide = field(default_factory=lambda: BorderSide.none())
+    top: BorderSide = field(default_factory=BorderSide.none)
     """
     Top side of the border.
     """
 
-    right: BorderSide = field(default_factory=lambda: BorderSide.none())
+    right: BorderSide = field(default_factory=BorderSide.none)
     """
     Right side of the border.
     """
 
-    bottom: BorderSide = field(default_factory=lambda: BorderSide.none())
+    bottom: BorderSide = field(default_factory=BorderSide.none)
     """
     Bottom side of the border.
     """
 
-    left: BorderSide = field(default_factory=lambda: BorderSide.none())
+    left: BorderSide = field(default_factory=BorderSide.none)
     """
     Left side of the border.
     """

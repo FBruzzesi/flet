@@ -29,7 +29,7 @@ class Circle(Shape):
     Circle's radius.
     """
 
-    paint: Paint = field(default_factory=lambda: Paint())
+    paint: Paint = field(default_factory=Paint)
     """
     A style to draw a circle with.
     """

@@ -208,7 +208,7 @@ def test_simple_page():
         SuperButton(
             "Button 😬",
             style=ButtonStyle(color=Colors.RED),
-            on_click=lambda e: print(e),
+            on_click=print,
             opacity=1,
             ref=None,
         ),
