@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from math import isfinite, isinf
 from typing import Optional
 
 from flet.controls.transform import Offset
@@ -32,11 +33,11 @@ class Size:
 
     def is_infinite(self) -> bool:
         """Checks if either dimension is infinite."""
-        return self.width == float("inf") or self.height == float("inf")
+        return isinf(self.width) or isinf(self.height)
 
     def is_finite(self) -> bool:
         """Checks if both dimensions are finite."""
-        return self.width != float("inf") and self.height != float("inf")
+        return isfinite(self.width) and isfinite(self.height)
 
     @classmethod
     def square(cls, dimension: Number) -> "Size":

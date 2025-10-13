@@ -56,20 +56,20 @@ class AndroidSDK:
             return Path(home_dir)
 
         # check for Android SDKs installed with Android Studio
-        for hd in [
+        for hd in (
             AndroidSDK.studio_android_home_dir(),
             AndroidSDK.default_android_home_dir(),
-        ]:
+        ):
             if hd.exists():
                 return hd
 
         return None
 
     def cmdline_tools_bin(self, home_dir: Path) -> Optional[Path]:
-        for d in [
+        for d in (
             home_dir / "cmdline-tools" / "latest" / "bin",
             home_dir / "cmdline-tools" / ANDROID_CMDLINE_TOOLS_VERSION / "bin",
-        ]:
+        ):
             if d.exists():
                 return d
         return None

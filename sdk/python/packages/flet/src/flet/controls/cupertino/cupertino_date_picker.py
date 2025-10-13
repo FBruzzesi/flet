@@ -205,10 +205,10 @@ class CupertinoDatePicker(LayoutControl):
                     f"value ({value}) can't be after last_date ({self.last_date})"
                 )
 
-        if self.date_picker_mode in [
+        if self.date_picker_mode in (
             CupertinoDatePickerMode.DATE,
             CupertinoDatePickerMode.MONTH_YEAR,
-        ]:
+        ):
             if not (1 <= self.minimum_year <= value.year):
                 raise ValueError(
                     f"value.year ({value.year}) can't be less than minimum_year "

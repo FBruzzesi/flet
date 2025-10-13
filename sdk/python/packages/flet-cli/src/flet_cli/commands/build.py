@@ -783,7 +783,7 @@ class Command(BaseCommand):
         self.env["PATH"] = os.pathsep.join([os.path.join(flutter_dir, "bin"), path_env])
 
         # desktop mode
-        if self.config_platform in ["macos", "windows", "linux"]:
+        if self.config_platform in ("macos", "windows", "linux"):
             if self.verbose > 0:
                 console.log(
                     "Ensure Flutter has desktop support enabled",
@@ -1115,7 +1115,7 @@ class Command(BaseCommand):
             or ios_export_method_opts.get("team_id")
         )
 
-        if self.options.target_platform in ["ipa"] and not ios_provisioning_profile:
+        if self.options.target_platform == "ipa" and not ios_provisioning_profile:
             console.print(
                 Panel(
                     "This build will generate an .xcarchive (Xcode Archive). "
@@ -1500,7 +1500,7 @@ class Command(BaseCommand):
         assert self.pubspec_path
         assert self.build_dir
 
-        if self.options.target_platform not in ["web", "ipa", "apk", "aab"]:
+        if self.options.target_platform not in ("web", "ipa", "apk", "aab"):
             return
 
         hash = HashStamp(self.build_dir / ".hash" / "splashes")
@@ -2048,7 +2048,7 @@ class Command(BaseCommand):
         ):
             build_args.append("--split-per-abi")
 
-        if self.options.target_platform in ["ipa"]:
+        if self.options.target_platform == "ipa":
             if self.template_data["ios_provisioning_profile"]:
                 build_args.extend(
                     [

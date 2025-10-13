@@ -5,7 +5,7 @@ import sys
 
 def get_bool_env_var(name: str):
     v = os.getenv(name)
-    return v.lower() in ["true", "1", "yes"] if v is not None else None
+    return v.lower() in ("true", "1", "yes") if v is not None else None
 
 
 def is_asyncio():
@@ -77,9 +77,9 @@ def get_platform():
 
 def get_arch():
     a = platform.machine().lower() if not is_mobile() else ""
-    if a == "x86_64" or a == "amd64":
+    if a in ("x86_64", "amd64"):
         return "amd64"
-    elif a == "arm64" or a == "aarch64":
+    elif a in ("arm64", "aarch64"):
         return "arm64"
     elif a.startswith("arm"):
         return "arm_7"

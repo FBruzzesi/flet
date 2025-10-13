@@ -755,7 +755,7 @@ class Page(BasePage):
         assert state == self.__authorization.state
 
         if not self.web:
-            if self.platform in ["ios", "android"]:
+            if self.platform in ("ios", "android"):
                 # close web view on mobile
                 await self.close_in_app_web_view()
             else:
@@ -771,7 +771,7 @@ class Page(BasePage):
             # perform token request
 
             code = data.get("code")
-            assert code not in [None, ""]
+            assert code not in (None, "")
             try:
                 await self.__authorization.request_token(code)
             except Exception as ex:

@@ -159,7 +159,7 @@ async def run_async(
     page_name = __get_page_name(name)
 
     is_socket_server = (
-        is_embedded() or view in [AppView.FLET_APP, AppView.FLET_APP_HIDDEN, None]
+        is_embedded() or view in (AppView.FLET_APP, AppView.FLET_APP_HIDDEN, None)
     ) and not force_web_server
 
     url_prefix = os.getenv("FLET_DISPLAY_URL_PREFIX")
@@ -213,7 +213,7 @@ async def run_async(
 
     try:
         if (
-            (view in [AppView.FLET_APP, AppView.FLET_APP_HIDDEN, AppView.FLET_APP_WEB])
+            (view in (AppView.FLET_APP, AppView.FLET_APP_HIDDEN, AppView.FLET_APP_WEB))
             and not force_web_server
             and not is_embedded()
             and url_prefix is None
@@ -316,7 +316,7 @@ async def __run_web_server(
     ensure_flet_web_package_installed()
     from flet_web.fastapi.serve_fastapi_web_app import serve_fastapi_web_app
 
-    url_host = "127.0.0.1" if host in [None, "", "*"] else host
+    url_host = "127.0.0.1" if host in (None, "", "*") else host
 
     if port == 0:
         port = get_free_tcp_port()
@@ -324,7 +324,7 @@ async def __run_web_server(
     logger.info(f"Starting Flet web server on port {port}...")
 
     log_level = logging.getLogger("flet").getEffectiveLevel()
-    if log_level == logging.CRITICAL or log_level == logging.NOTSET:
+    if log_level in (logging.CRITICAL, logging.NOTSET):
         log_level = logging.FATAL
 
     return await serve_fastapi_web_app(

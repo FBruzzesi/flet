@@ -47,7 +47,7 @@ def cleanup_path(path: str, executable: str):
     cleaned_dirs = []
     for path_dir in path.split(os.pathsep):
         found = False
-        for file_name in [executable, f"{executable}.bat", f"{executable}.cmd"]:
+        for file_name in (executable, f"{executable}.bat", f"{executable}.cmd"):
             if os.path.isfile(os.path.join(path_dir, file_name)):
                 found = True
                 break

@@ -48,7 +48,7 @@ def platform_info():
         ext = "tar.gz"
     elif system == "linux":
         platform_name = "linux"
-        if arch in ["armv7l", "armv8l"]:
+        if arch in ("armv7l", "armv8l"):
             arch_name = "arm"
         elif arch == "aarch64":
             arch_name = "aarch64"

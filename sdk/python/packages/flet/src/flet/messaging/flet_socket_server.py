@@ -239,11 +239,11 @@ class FletSocketServer(Connection):
 
         tasks = [
             task
-            for task in [
+            for task in (
                 self.__receive_loop_task,
                 self.__send_loop_task,
                 self.__serve_task,
-            ]
+            )
             if task
         ]
 

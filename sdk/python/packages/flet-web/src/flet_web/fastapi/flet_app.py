@@ -363,7 +363,7 @@ class FletApp(Connection):
 
     def __get_unique_session_id(self, session_id: str):
         ip = self.__client_ip
-        if ip in ["127.0.0.1", "::1"]:
+        if ip in ("127.0.0.1", "::1"):
             ip = ""
         client_hash = sha1(f"{ip}{self.__client_user_agent}")
         return f"{self.page_name}_{session_id}_{client_hash}"

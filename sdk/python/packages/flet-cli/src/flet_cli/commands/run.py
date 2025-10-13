@@ -322,7 +322,7 @@ class Handler(FileSystemEventHandler):
 
         if (
             self.watch_directory or event.src_path == self.script_path
-        ) and event.event_type in ["modified", "deleted", "created", "moved"]:
+        ) and event.event_type in ("modified", "deleted", "created", "moved"):
             current_time = time.time()
             if (current_time - self.last_time) > 0.5 and self.is_running:
                 self.last_time = current_time
