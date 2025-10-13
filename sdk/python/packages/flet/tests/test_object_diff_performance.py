@@ -92,19 +92,19 @@ def _sunflower_controls(count: int) -> list[ft.Container]:
                 align=ft.Alignment(r * math.cos(theta), -r * math.sin(theta)),
             )
         )
-    for j in range(count, MAX_SEEDS):
-        controls.append(
-            ft.Container(
-                key=j,
-                width=5,
-                height=5,
-                bgcolor=ft.Colors.GREY_700,
-                align=ft.Alignment(
-                    math.cos(tau * j / (MAX_SEEDS - 1)) * 0.9,
-                    math.sin(tau * j / (MAX_SEEDS - 1)) * 0.9,
-                ),
-            )
+    controls.extend(
+        ft.Container(
+            key=j,
+            width=5,
+            height=5,
+            bgcolor=ft.Colors.GREY_700,
+            align=ft.Alignment(
+                math.cos(tau * j / (MAX_SEEDS - 1)) * 0.9,
+                math.sin(tau * j / (MAX_SEEDS - 1)) * 0.9,
+            ),
         )
+        for j in range(count, MAX_SEEDS)
+    )
     return controls
 
 

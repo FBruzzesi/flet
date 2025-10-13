@@ -31,15 +31,8 @@ class GitHubOAuthProvider(OAuthProvider):
                 )
             )
             teams_resp.raise_for_status()
-            groups = []
             tj = json.loads(teams_resp.text)
-            for t in tj:
-                groups.append(
-                    Group(
-                        t,
-                        name=t["name"],
-                    )
-                )
+            groups = [Group(t, name=t["name"]) for t in tj]
             return groups
 
     async def _fetch_user(self, access_token: str) -> Optional[User]:
