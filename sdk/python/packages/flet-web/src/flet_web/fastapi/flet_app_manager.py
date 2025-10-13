@@ -6,11 +6,10 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from typing import Optional
 
+import flet_web.fastapi as flet_fastapi
 from flet.messaging.connection import Connection
 from flet.messaging.session import Session
 from flet.pubsub.pubsub_hub import PubSubHub
-
-import flet_web.fastapi as flet_fastapi
 from flet_web.fastapi.oauth_state import OAuthState
 
 logger = logging.getLogger(flet_fastapi.__name__)
@@ -116,23 +115,25 @@ class FletAppManager:
     async def __evict_expired_sessions(self):
         while True:
             await asyncio.sleep(10)
-            session_ids = []
-            for session_id, session in self.__sessions.items():
+            session_ids = (
+                session_id
+                for session_id, session in self.__sessions.items()
                 if (
                     session.expires_at
                     and datetime.now(timezone.utc) > session.expires_at
-                ):
-                    session_ids.append(session_id)
+                )
+            )
             for session_id in session_ids:
                 await self.delete_session(session_id)
 
     async def __evict_expired_oauth_states(self):
         while True:
             await asyncio.sleep(10)
-            ids = []
-            for id, state in self.__states.items():
-                if state.expires_at and datetime.now(timezone.utc) > state.expires_at:
-                    ids.append(id)
+            ids = (
+                id
+                for id, state in self.__states.items()
+                if state.expires_at and datetime.now(timezone.utc) > state.expires_at
+            )
             for id in ids:
                 logger.info(f"Delete expired oauth state: {id}")
                 self.retrieve_state(id)

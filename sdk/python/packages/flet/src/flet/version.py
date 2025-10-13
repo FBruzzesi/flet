@@ -40,8 +40,7 @@ def update_version():
                         text=True,
                         check=True,  # Raise an exception for non-zero exit codes
                     )
-                    tag = git_p.stdout.strip()
-                    return tag[1:] if tag.startswith("v") else tag
+                    return git_p.stdout.strip().removeprefix("v")
                 except sp.CalledProcessError as e:
                     print(f"Error getting Git version: {e}")
                 except FileNotFoundError:

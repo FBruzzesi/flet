@@ -1280,7 +1280,7 @@ class Command(BaseCommand):
                 )
             except Exception as e:
                 shutil.rmtree(self.flutter_dir)
-                self.cleanup(1, f"{e}")
+                self.cleanup(1, str(e))
 
             pyproject_pubspec = self.get_pyproject("tool.flet.flutter.pubspec")
 

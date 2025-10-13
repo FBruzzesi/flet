@@ -26,13 +26,21 @@ def patch_index_html(
 
     if pyodide and pyodide_script_path:
         module_name = Path(pyodide_script_path).stem
-        app_config.append("flet.pyodide = true;")
-        app_config.append(f"flet.micropipIncludePre = {str(pyodide_pre).lower()};")
-        app_config.append(f'flet.pythonModuleName = "{module_name}";')
+        app_config.extend(
+            (
+                "flet.pyodide = true;",
+                f"flet.micropipIncludePre = {str(pyodide_pre).lower()};",
+                f'flet.pythonModuleName = "{module_name}";',
+            )
+        )
 
-    app_config.append(f"flet.noCdn={str(no_cdn).lower()};")
-    app_config.append(f'flet.webRenderer="{web_renderer.value}";')
-    app_config.append(f'flet.routeUrlStrategy="{route_url_strategy.value}";')
+    app_config.extend(
+        (
+            f"flet.noCdn={str(no_cdn).lower()};"
+            f'flet.webRenderer="{web_renderer.value}";',
+            f'flet.routeUrlStrategy="{route_url_strategy.value}";',
+        )
+    )
 
     if websocket_endpoint_path:
         app_config.append(f'flet.webSocketEndpoint="{websocket_endpoint_path}";')

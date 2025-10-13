@@ -27,7 +27,9 @@ class Vector(complex):
 
     >>> Vector(1, 1) + 2
     Vector(3.0, 1.0)
-    >>> Vector(0.1, 0.1) + Vector(0.2, 0.2)  == Vector(0.3, 0.3)  # Float tolerance 10 decimals
+    >>> Vector(0.1, 0.1) + Vector(0.2, 0.2) == Vector(
+    ...     0.3, 0.3
+    ... )  # Float tolerance 10 decimals
     True
     >>> Vector(2, 3) - Vector(1, 1)
     Vector(1.0, 2.0)
@@ -87,7 +89,7 @@ class Vector(complex):
         return str(tuple(self))
 
     def __repr__(self):
-        return f"{type(self).__name__}{str(self)}"
+        return f"{type(self).__name__}{self}"
 
     @classmethod
     def polar(cls, radians, magnitude):

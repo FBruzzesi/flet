@@ -216,8 +216,7 @@ class Command(BaseCommand):
             full_path = os.path.join(script_dir, tarinfo.name)
             if (
                 (
-                    tarinfo.name.startswith(".")
-                    or tarinfo.name.startswith("__pycache__")
+                    tarinfo.name.startswith((".", "__pycache__"))
                     or tarinfo.name == reqs_filename
                 )
                 or assets_dir
